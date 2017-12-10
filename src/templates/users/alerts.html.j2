@@ -1,0 +1,20 @@
+{% extends "base.html.j2" %}
+{% block content %}
+    <div class="alerts-page-header">
+        <h1>Alerts <small class="small-h1">showing already existing alerts</small></h1>
+        <hr>
+    </div>
+    <div class="list-group inactive-link">
+    {% for alert in alerts %}
+        <a href="{{ url_for('alerts.get_alert_page', alert_id=alert._id) }}" class="list-group-item list-group-item-action {{ 'list-group-item-warning' if not alert.active else 'list-group-item-success' }}">
+            <h4 class="mb-1">
+                {{ '<span class="fa fa-times-circle"></span>' if not alert.active else '<span class="fa fa-check-circle"></span>' }} Alert for: {{ alert.item.name }}</h4>
+            <p class="mb-1">Last price found: <strong>{{ alert.item.price }}</strong><br>
+            Last checked on: <strong>{{ alert.last_checked.strftime("%m-%d-%Y at %H:%M") }}</strong></p>
+        </a>
+    {% endfor %}
+    </div>
+    <br>
+    <a class="btn btn-success" href="{{ url_for('alerts.new_alert') }}">
+        <span class="fa fa-plus-circle"></span> Create new alert</a>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "base.html.j2" %}
+{% block content %}
+    <p>Your alert was successfully activated!</p>
+    <p>Go back to <a href="{{ url_for('alerts.get_alert_page', alert_id=alert._id) }}">your alert.</a></p>
+{% endblock %}

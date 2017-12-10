@@ -1,0 +1,17 @@
+{% extends "base.html.j2" %}
+{% block content %}
+    <div class="store-page-header">
+        <h1>Store <small class="small-h1">{{ store.name }}</small></h1>
+    </div>
+    <p>All URLs in this store should start with <strong>{{ store.url_prefix }}</strong></p>
+    {% if session['email'] in config.ADMINS %}
+        <div class="card-edit">
+            <hr>
+            <div class="card-body card-body-edit">
+                <a class="btn btn-warning warning-button" href="{{ url_for('stores.edit_store', store_id=store._id) }}" role="button">Edit Store</a>
+                <a class="btn btn-danger danger-button" href="{{ url_for('stores.delete_store', store_id=store._id) }}" role="button">Permanently Delete Store</a>
+            </div>
+
+        </div>
+        {% endif %}
+{% endblock %}

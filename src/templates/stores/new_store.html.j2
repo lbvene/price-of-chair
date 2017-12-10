@@ -1,0 +1,32 @@
+{% extends "base.html.j2" %}
+{% block content %}
+    <div class="new-store-page-header">
+        <h1>Create Store</h1>
+    </div>
+    <div class="form-size">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="name">Store Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Store name">
+            </div>
+            <div class="form-group">
+                <label for="url_prefix">URL Prefix</label>
+                <input type="text" class="form-control" id="url_prefix" name="url_prefix" placeholder="http://..." aria-describedby="storeURLPrefixHelp">
+                <span id="storeURLPrefixHelp" class="form-text text-muted">What characters do URLs of all items start with?</span>
+            </div>
+            <div class="form-group">
+                <label for="tag_name">Tag Name</label>
+                <input type="text" class="form-control" id="tag_name" name="tag_name" placeholder="span" value="span" aria-describedby="storeTagNameHelp">
+                <span id="storeTagNameHelp" class="form-text text-muted">What is the HTML tag of the item that contains the item price? (usually <code>span</code>)</span>
+            </div>
+            <div class="form-group">
+                <label for="query">Search Query</label>
+                <input type="text" class="form-control" id="query" name="query" placeholder='{"class": "now-price"}' value='{"class": "now-price"}' aria-describedby="queryHelpBlock">
+                <span id="queryHelpBlock" class="form-text text-muted">What JSON query would we have to do to find the specific tag with the price? (Remember to use double quotation marks!)</span>
+            </div>
+            <button type="submit" class="btn btn-success">
+                <span class="fa fa-plus-circle"></span> Create store
+            </button>
+        </form>
+    </div>
+{% endblock %}

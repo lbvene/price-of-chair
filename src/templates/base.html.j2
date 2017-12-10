@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pricing Service</title>
+
+        {% include 'html_dependencies.html.j2' %}
+
+    </head>
+    <body>
+        <nav role="navigation" class="navbar navbar-light bg-light">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-brand" href="/" title="Home">Pricing</a>
+                </div>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarsExample01" style="">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('stores.index') }}">
+                                Stores
+                            <a/>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('alerts.index') }}">
+                                Alerts
+                            </a>
+                        </li>
+                    {% if session['email'] %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('users.user_alerts') }}">
+                                <span class="fa fa-bell" aria-hidden="true"></span>
+                                Your Alerts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('users.logout_user') }}">
+                                <span class="fa fa-sign-out" aria-hidden="true"></span>
+                                Log out
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('users.register_user') }}">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                Sign up
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('users.login_user') }}">
+                                <span class="fa fa-sign-in" aria-hidden="true"></span>
+                                Login
+                            </a>
+                        </li>
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </body>
+</html>

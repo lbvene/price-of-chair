@@ -1,0 +1,14 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid jumbotron-edit">
+    <div class="container">
+        <h1 class="display-3">Pricing Service</h1>
+        <p class="lead">We scan online store websites to alert you of price drops in items that interest you.</p>
+        <p>Just sign up, and get started by adding the URL of an item that you wish to track. We'll do the rest!</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{ url_for('users.register_user') }}" role="button">Sign up</a>
+        </p>
+        <p>Already have an account? <a href="{{ url_for('users.login_user') }}">Login!</p>
+    </div>
+</div>
+{% endblock %}
